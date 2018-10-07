@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="gym"
+            type="com.architecture.kotlinmvvm.model.Gym" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="@dimen/map_info_window_width"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_normal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{gym.name()}"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/text_title"
+            tools:text="香港公園體育館" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:drawablePadding="@dimen/spacing_normal"
+            android:gravity="center_vertical"
+            android:text="@{gym.address()}"
+            tools:text="中環紅棉路29號" />
+
+    </LinearLayout>
+
+</layout>

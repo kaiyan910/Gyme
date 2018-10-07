@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="splashing_logo_size">128dp</dimen>
+
+    <dimen name="map_info_window_width">200dp</dimen>
+
+    <dimen name="equipment_search_result_icon_size">96dp</dimen>
+
+</resources>

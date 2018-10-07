@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="count"
+            type="Integer" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/search_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_equipment_item"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_large">
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_equipment_search"
+                android:drawablePadding="@dimen/spacing_normal"
+                android:drawableStart="@drawable/ic_search"
+                android:hint="@string/equipment_search_hint"
+                android:inputType="text"
+                android:maxLines="1"
+                android:outlineProvider="background"
+                android:padding="@dimen/spacing_normal"
+                android:textSize="@dimen/text_body" />
+
+        </LinearLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_wrapper"
+            app:refreshing="@{true}">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_facilities"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_equipment_control"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <android.support.design.chip.Chip
+                android:id="@+id/chip_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_large"
+                android:text="@{String.format(@string/equipment_number_selected, count)}"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/text_body"
+                app:layout_constraintBottom_toBottomOf="@id/btn_filter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_filter"
+                app:closeIcon="@drawable/ic_close"
+                app:closeIconVisible="@{safeUnbox(count) > 0}"
+                tools:text="@string/equipment_number_selected" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btn_filter"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:backgroundTint="@color/primary_dark"
+                android:text="@string/equipment_search"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:icon="@drawable/ic_search"
+                app:iconTint="@android:color/white" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="error_undefined">[000.000] Undefined error</string>
+
+    <string name="error_400_000">[400.000] Bad Request</string>
+    <string name="error_404_000">[404.000] Not Found</string>
+    <string name="error_403_000">[403.000] Forbidden</string>
+    <string name="error_500_000">[500.000] Internal Server</string>
+    <string name="error_503_000">[503.000] Service Unavailable</string>
+</resources>

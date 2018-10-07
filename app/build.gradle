@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+def propertiesFile = rootProject.file('local.properties')
+def props = new Properties()
+
+props.load(new FileInputStream(propertiesFile))
+
+def STORE_FILE = props['STORE_FILE']
+def STORE_PASSWORD = props['STORE_PASSWORD']
+def KEY_ALIAS = props['KEY_ALIAS']
+def KEY_PASSWORD = props['KEY_PASSWORD']
+def GOOGLE_API = props['GOOGLE_API']
+
+
+android {
+
+    buildToolsVersion '28.0.3'
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.olleh.gyme"
+        minSdkVersion rootProject.androidMinSdk
+        targetSdkVersion rootProject.androidTargetSdk
+        versionCode rootProject.androidVersionCode
+        versionName rootProject.androidVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+
+        release {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+
+        debug {
+            storeFile file('../buildSystem/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "google_api", GOOGLE_API
+        }
+        debug {
+            resValue "string", "google_api", GOOGLE_API
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "app-${variant.versionName}-${new Date().format('ddMMyyyy')}-${variant.buildType.name}.apk"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    rootProject.appDependencies.each {
+        add(it.config, it.dependency)
+    }
+}

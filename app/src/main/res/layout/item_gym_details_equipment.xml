@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="equipment"
+            type="com.architecture.kotlinmvvm.model.Equipment" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_equipment_item"
+        android:paddingBottom="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_large"
+        android:paddingStart="@dimen/spacing_large"
+        android:paddingTop="@dimen/spacing_normal">
+
+        <LinearLayout
+            android:id="@+id/name_wrapper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_accessible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{equipment.nameZH}"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_title"
+                tools:text="靠背式單車" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:text="@{equipment.nameEN}"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/text_caption"
+                tools:text="靠背式單車" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:drawableStart="@drawable/ic_pin"
+                    android:textColor="@color/primary"
+                    android:text="@string/gym_details_venue" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:text="@{String.valueOf(equipment.roomNumber)}"
+                    android:textColor="@color/secondary_text"
+                    tools:text="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:drawableStart="@drawable/ic_weighting_small"
+                    android:textColor="@color/primary"
+                    android:text="@string/gym_details_number" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(equipment.numberOfSeat)}"
+                    android:textColor="@color/secondary_text"
+                    tools:text="3" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_accessible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_accessible"
+            android:tint="@{equipment.shared ? @color/primary : @color/grey}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/name_wrapper" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

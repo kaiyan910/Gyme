@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GYME</string>
+
+    <string name="navigation_map">地圖</string>
+    <string name="navigation_equipment">器材</string>
+    <string name="navigation_record">記錄</string>
+    <string name="navigation_settings">設定</string>
+
+    <string name="map_all">所有</string>
+    <string name="map_hk">香港</string>
+    <string name="map_kln">九龍</string>
+    <string name="map_nt">新界</string>
+
+    <string name="equipment_search">搜尋</string>
+    <string name="equipment_reset">重置</string>
+    <string name="equipment_match_all">符合所有條件</string>
+    <string name="equipment_number_selected">已選 %d 器材</string>
+    <string name="equipment_search_hint">搜尋器材&#8230;</string>
+    <string name="equipment_clear">清除已選</string>
+    <string name="equipment_must_have_one">必需選擇至少一個器材</string>
+
+    <string name="search_gym_title">搜尋健身室</string>
+    <string name="search_gym_last_filter">已經是最後一個篩選條件</string>
+    <string name="search_gym_empty">沒有找到符合條件的健身室</string>
+    <string name="search_gym_empty_2">提示：可以嘗試減少篩選條件</string>
+
+    <string name="gym_details_tab_info">詳情</string>
+    <string name="gym_details_tab_equipments">器材</string>
+    <string name="gym_details_venue">場地：</string>
+    <string name="gym_details_number">數量：</string>
+
+    <string name="gym_details_shared_with_disable">需要與殘疾人士共用</string>
+    <string name="gym_details_not_shared_with_disable">不用與殘疾人士共用</string>
+
+    <string name="settings_system">系統</string>
+    <string name="settings_language">語言</string>
+    <string name="settings_update">更新</string>
+    <string name="settings_data">數據</string>
+    <string name="settings_last_update">最後更新日期： %s</string>
+    <string name="settings_downloading">下載中</string>
+
+</resources>
+

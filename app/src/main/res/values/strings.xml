@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GYME</string>
+
+    <string name="navigation_map">Map</string>
+    <string name="navigation_equipment">Equipment</string>
+    <string name="navigation_record">Record</string>
+    <string name="navigation_settings">Settings</string>
+
+    <string name="map_all">All</string>
+    <string name="map_hk">HK</string>
+    <string name="map_kln">Kowloon</string>
+    <string name="map_nt">N.T.</string>
+
+    <string name="equipment_search">Search</string>
+    <string name="equipment_reset">Reset</string>
+    <string name="equipment_match_all">Match All</string>
+    <string name="equipment_number_selected">%d selected</string>
+    <string name="equipment_search_hint">Search equipment&#8230;</string>
+    <string name="equipment_clear">Clear</string>
+    <string name="equipment_must_have_one">You must choose at least one</string>
+
+    <string name="search_gym_title">Search GYM</string>
+    <string name="search_gym_last_filter">It is the last criteria</string>
+    <string name="search_gym_empty">No GYM is found.</string>
+    <string name="search_gym_empty_2">Tips：try to reduce the criteria</string>
+
+    <string name="gym_details_tab_info">Details</string>
+    <string name="gym_details_tab_equipments">Equipment</string>
+    <string name="gym_details_venue">Venue：</string>
+    <string name="gym_details_number">Number：</string>
+
+    <string name="gym_details_shared_with_disable">share with disabled people</string>
+    <string name="gym_details_not_shared_with_disable">not share with disabled people</string>
+
+
+    <string name="settings_language_chinese" translatable="false">中文</string>
+    <string name="settings_language_english" translatable="false">English</string>
+
+    <string name="settings_system">System</string>
+    <string name="settings_language">Locale</string>
+    <string name="settings_update">Update</string>
+    <string name="settings_data">Data</string>
+    <string name="settings_last_update">Last Update Time: %s</string>
+    <string name="settings_downloading">Downloading</string>
+
+</resources>

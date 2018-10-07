@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<import type="android.view.View" />
+
+		<variable
+			name="language"
+			type="String" />
+
+		<variable
+			name="updateTime"
+			type="String" />
+
+		<variable
+			name="updating"
+			type="Boolean" />
+
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:padding="@dimen/spacing_large">
+
+		<android.support.constraint.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/spacing_large"
+			android:background="@color/grey_light"
+			android:padding="@dimen/spacing_large">
+
+			<TextView
+				android:id="@+id/tv_label_system"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/spacing_small"
+				android:drawablePadding="@dimen/spacing_small"
+				android:drawableStart="@drawable/ic_settings"
+				android:text="@string/settings_system"
+				android:textColor="@color/primary"
+				android:textSize="@dimen/text_subheading"
+				android:textStyle="bold"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
+
+			<TextView
+				android:id="@+id/tv_language"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="@string/settings_language"
+				app:layout_constraintBottom_toBottomOf="@id/language_wrapper"
+				app:layout_constraintEnd_toStartOf="@id/language_wrapper"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="@id/language_wrapper" />
+
+			<LinearLayout
+				android:id="@+id/language_wrapper"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:orientation="horizontal"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/tv_label_system">
+
+				<android.support.design.button.MaterialButton
+					android:id="@+id/mb_chinese"
+					style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/spacing_normal"
+					android:text="@string/settings_language_chinese"
+					android:textColor="@{language == `zh` ? @android:color/white : @color/primary}"
+					app:mbBackgroundTint="@{language == `zh` ? @color/primary : @android:color/white}" />
+
+				<android.support.design.button.MaterialButton
+					android:id="@+id/mb_english"
+					style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="true"
+					android:text="@string/settings_language_english"
+					android:textColor="@{language == `en` ? @android:color/white : @color/primary}"
+					app:mbBackgroundTint="@{language == `en` ? @color/primary : @android:color/white}" />
+
+			</LinearLayout>
+
+		</android.support.constraint.ConstraintLayout>
+
+		<android.support.constraint.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/grey_light"
+			android:padding="@dimen/spacing_large">
+
+			<TextView
+				android:id="@+id/tv_label_data"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:drawablePadding="@dimen/spacing_small"
+				android:drawableStart="@drawable/ic_data"
+				android:text="@string/settings_data"
+				android:textColor="@color/primary"
+				android:textSize="@dimen/text_subheading"
+				android:textStyle="bold"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
+
+			<android.support.design.button.MaterialButton
+				android:id="@+id/mb_update"
+				style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:backgroundTint="@android:color/white"
+				android:text="@{safeUnbox(updating) ? @string/settings_downloading : @string/settings_update}"
+				app:icon="@drawable/ic_download"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/tv_last_update" />
+
+			<TextView
+				android:id="@+id/tv_last_update"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:text="@{@string/settings_last_update(updateTime)}"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/tv_label_data"
+				tools:text="最後更新日期： 22/10/2018" />
+
+			<ProgressBar
+				android:id="@+id/progress"
+				style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:indeterminate="true"
+				android:visibility="@{safeUnbox(updating) ? View.VISIBLE : View.GONE}"
+				app:layout_constraintEnd_toEndOf="@id/mb_update"
+				app:layout_constraintStart_toStartOf="@id/mb_update"
+				app:layout_constraintTop_toBottomOf="@id/mb_update" />
+
+		</android.support.constraint.ConstraintLayout>
+
+	</LinearLayout>
+
+</layout>

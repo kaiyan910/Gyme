@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+static def getDate() {
+    new Date().format('dd-MM-yyyy')
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion rootProject.androidMinSdk
+        targetSdkVersion rootProject.androidCompileSdk
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            ndk {
+                abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+            }
+        }
+
+    }
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "core_build_date", getDate()
+        }
+
+        debug {
+            resValue "string", "core_build_date", getDate()
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildToolsVersion '28.0.2'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    rootProject.coreDependencies.each {
+        add(it.config, it.dependency)
+    }
+}

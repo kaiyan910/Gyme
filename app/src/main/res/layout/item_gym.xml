@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="gym"
+            type="com.architecture.kotlinmvvm.model.Gym" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_equipment_item"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingTop="@dimen/spacing_normal"
+        android:paddingBottom="@dimen/spacing_normal"
+        android:paddingStart="@dimen/spacing_large"
+        android:paddingEnd="@dimen/spacing_large">
+
+        <LinearLayout
+            android:id="@+id/name_wrapper"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_next"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{gym.name()}"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_title"
+                tools:text="將軍澳體育館" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondary_text"
+                android:text="@{gym.address()}"
+                android:textSize="@dimen/text_caption"
+                tools:text="將軍澳某處" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/primary"
+            app:layout_constraintTop_toTopOf="@id/name_wrapper"
+            app:layout_constraintBottom_toBottomOf="@id/name_wrapper"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_next" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

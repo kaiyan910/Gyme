@@ -1,0 +1,170 @@
+ext {
+
+    buildToolsVersion = '28.0.2'
+    androidMinSdk = 21
+    androidTargetSdk = 28
+    androidCompileSdk = 28
+    androidVersionCode = 1
+    androidVersionName = '1.0'
+
+    def multiDex = '1.0.3'
+    def support = '28.0.0-rc02'
+    def arch = '1.1.1'
+    def dagger = '2.15'
+    def room = '1.1.1'
+    def rxJava = '2.1.1'
+    def rxJavaAndroid = '2.1.0'
+    def rxBinding = '2.1.1'
+    def okHttp = '3.9.0'
+    def retrofit = '2.3.0'
+    def conceal = '2.0.1@aar'
+    def codeUtils = '1.19.3'
+    def constraintLayout = '1.0.2'
+    def materialDialog = '0.9.6.0'
+    def timber = '4.7.1'
+    def logger = '2.2.0'
+    def googleServices = '15.0.1'
+    def tooltips = '0.1.9'
+    def joda = '2.9.9.4'
+
+    def mockito = '2.0.0-RC1'
+    def jUnit = '4.12'
+
+    def testLibs = [
+            mockito : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito",
+            retrofit: "com.squareup.retrofit2:retrofit-mock:$retrofit",
+            arch    : "android.arch.core:core-testing:$arch",
+            junit   : "junit:junit:$jUnit"
+    ]
+
+    // to be replaced by the AndroidX dependencies
+    def androidLibs = [
+            supportV4         : "com.android.support:support-v4:$support",
+            appCompatV7       : "com.android.support:appcompat-v7:$support",
+            supportAnnotation : "com.android.support:support-annotations:$support",
+            recyclerview      : "com.android.support:recyclerview-v7:$support",
+            design            : "com.android.support:design:$support",
+            constraintLayout  : "com.android.support.constraint:constraint-layout:$constraintLayout",
+            lifecycleRuntime  : "android.arch.lifecycle:runtime:$arch",
+            lifecycleCompiler : "android.arch.lifecycle:compiler:$arch",
+            lifecycleExensions: "android.arch.lifecycle:extensions:$arch",
+            multiDex          : "com.android.support:multidex:$multiDex"
+    ]
+
+    def googleLibs = [
+            maps: "com.google.android.gms:play-services-maps:$googleServices"
+    ]
+
+    def roomLibs = [
+            room        : "android.arch.persistence.room:runtime:$room",
+            roomCompiler: "android.arch.persistence.room:compiler:$room",
+            roomRxJava  : "android.arch.persistence.room:rxjava2:$room"
+    ]
+
+    def daggerLibs = [
+            dagger                       : "com.google.dagger:dagger:$dagger",
+            daggerCompiler               : "com.google.dagger:dagger-compiler:$dagger",
+            daggerAndroid                : "com.google.dagger:dagger-android:$dagger",
+            daggerAndroidProcessor       : "com.google.dagger:dagger-android-processor:$dagger",
+            daggerAndroidSupport         : "com.google.dagger:dagger-android-support:$dagger",
+            daggerAndroidSupportProcessor: "com.google.dagger:dagger-android-support:$dagger"
+    ]
+
+    def rxLibs = [
+            rxJava   : "io.reactivex.rxjava2:rxjava:$rxJava",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxJavaAndroid",
+            rxBinding: "com.jakewharton.rxbinding2:rxbinding:$rxBinding"
+    ]
+
+    def networkLibs = [
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofit",
+            retrofitRxJava    : "com.squareup.retrofit2:adapter-rxjava2:$retrofit",
+            retrofitMoshi     : "com.squareup.retrofit2:converter-moshi:$retrofit",
+            okhttp3Interceptor: "com.squareup.okhttp3:logging-interceptor:$okHttp"
+    ]
+
+    def logLibs = [
+
+            logger: "com.orhanobut:logger:$logger",
+            timber: "com.jakewharton.timber:timber:$timber"
+    ]
+
+    def commonLibs = [
+            conceal       : "com.facebook.conceal:conceal:$conceal",
+            utils         : "com.blankj:utilcode:$codeUtils",
+            materialDialog: "com.afollestad.material-dialogs:core:$materialDialog",
+            tooltips      : "com.github.vihtarb:tooltip:$tooltips",
+            joda          : "net.danlew:android.joda:$joda"
+    ]
+
+    testDependencies = [
+            [config: "testImplementation", dependency: testLibs.mockito],
+            [config: "testImplementation", dependency: testLibs.retrofit],
+            [config: "testImplementation", dependency: testLibs.arch],
+            [config: "testImplementation", dependency: testLibs.junit],
+    ]
+
+    appDependencies = [
+            [config: "implementation", dependency: androidLibs.multiDex],
+            [config: "implementation", dependency: androidLibs.appCompatV7],
+            [config: "implementation", dependency: androidLibs.supportV4],
+            [config: "implementation", dependency: androidLibs.design],
+            [config: "implementation", dependency: androidLibs.supportAnnotation],
+            [config: "implementation", dependency: androidLibs.recyclerview],
+            [config: "implementation", dependency: androidLibs.constraintLayout],
+            [config: "implementation", dependency: androidLibs.lifecycleRuntime],
+            [config: "implementation", dependency: androidLibs.lifecycleExensions],
+            [config: "kapt", dependency: androidLibs.lifecycleCompiler],
+            [config: "implementation", dependency: googleLibs.maps],
+            [config: "implementation", dependency: daggerLibs.dagger],
+            [config: "implementation", dependency: daggerLibs.daggerAndroid],
+            [config: "implementation", dependency: daggerLibs.daggerAndroidSupport],
+            [config: "kapt", dependency: daggerLibs.daggerAndroidProcessor],
+            [config: "kapt", dependency: daggerLibs.daggerCompiler],
+            [config: "kapt", dependency: daggerLibs.daggerAndroidSupportProcessor],
+            [config: "implementation", dependency: rxLibs.rxJava],
+            [config: "implementation", dependency: rxLibs.rxAndroid],
+            [config: "implementation", dependency: rxLibs.rxBinding],
+            [config: "implementation", dependency: logLibs.logger],
+            [config: "implementation", dependency: logLibs.timber],
+            [config: "implementation", dependency: commonLibs.utils],
+            [config: "implementation", dependency: commonLibs.materialDialog],
+            [config: "implementation", dependency: commonLibs.tooltips],
+            [config: "implementation", dependency: commonLibs.joda],
+            [config: "api", dependency: project(':core')]
+    ]
+
+    coreDependencies = [
+            [config: "implementation", dependency: androidLibs.supportV4],
+            [config: "implementation", dependency: androidLibs.appCompatV7],
+            [config: "implementation", dependency: androidLibs.design],
+            [config: "implementation", dependency: androidLibs.supportAnnotation],
+            [config: "implementation", dependency: androidLibs.recyclerview],
+            [config: "implementation", dependency: androidLibs.lifecycleRuntime],
+            [config: "implementation", dependency: androidLibs.lifecycleExensions],
+            [config: "kapt", dependency: androidLibs.lifecycleCompiler],
+            [config: "implementation", dependency: daggerLibs.dagger],
+            [config: "implementation", dependency: daggerLibs.daggerAndroid],
+            [config: "implementation", dependency: daggerLibs.daggerAndroidSupport],
+            [config: "kapt", dependency: daggerLibs.daggerAndroidProcessor],
+            [config: "kapt", dependency: daggerLibs.daggerCompiler],
+            [config: "kapt", dependency: daggerLibs.daggerAndroidSupportProcessor],
+            [config: "implementation", dependency: rxLibs.rxJava],
+            [config: "implementation", dependency: rxLibs.rxAndroid],
+            [config: "api", dependency: networkLibs.retrofit],
+            [config: "api", dependency: networkLibs.retrofitRxJava],
+            [config: "api", dependency: networkLibs.retrofitMoshi],
+            [config: "api", dependency: networkLibs.okhttp3Interceptor],
+
+            [config: "implementation", dependency: roomLibs.room],
+            [config: "kapt", dependency: roomLibs.roomCompiler],
+            [config: "implementation", dependency: roomLibs.roomRxJava],
+
+            [config: "implementation", dependency: logLibs.logger],
+            [config: "implementation", dependency: logLibs.timber],
+            [config: "implementation", dependency: commonLibs.conceal],
+            [config: "implementation", dependency: commonLibs.utils],
+            [config: "implementation", dependency: commonLibs.materialDialog]
+
+    ]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- support attribute for swipe refresh layout -->
+    <declare-styleable name="SwipeRefreshLayout">
+        <attr name="refreshing" format="boolean" />
+        <attr name="enabled" format="boolean" />
+    </declare-styleable>
+
+</resources>
