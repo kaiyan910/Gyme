@@ -6,3 +6,5 @@
 /build
 /captures
 .externalNativeBuild
+/buildSystem/release-key
+/app/google-services.json

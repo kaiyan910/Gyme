@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
 
 def propertiesFile = rootProject.file('local.properties')
 def props = new Properties()
@@ -71,3 +72,5 @@ dependencies {
         add(it.config, it.dependency)
     }
 }
+
+apply plugin: 'com.google.gms.google-services'

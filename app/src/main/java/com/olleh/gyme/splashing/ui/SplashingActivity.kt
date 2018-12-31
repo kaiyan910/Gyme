@@ -7,6 +7,7 @@ import com.olleh.gyme.R
 import com.olleh.gyme.databinding.ActivitySplashingBinding
 import com.olleh.gyme.main.ui.MainActivity
 import com.olleh.gyme.splashing.viewModel.SplashingViewModel
+import timber.log.Timber
 import javax.inject.Inject
 
 class SplashingActivity : AppActivity<ActivitySplashingBinding, SplashingViewModel>() {
@@ -32,11 +33,11 @@ class SplashingActivity : AppActivity<ActivitySplashingBinding, SplashingViewMod
         super.observe()
 
         mViewModel
-                .downloadState
-                .observe(this, resolve {
+            .downloadState
+            .observe(this, resolve {
 
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                })
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            })
     }
 }

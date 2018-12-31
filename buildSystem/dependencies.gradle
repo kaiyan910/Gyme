@@ -1,6 +1,6 @@
 ext {
 
-    buildToolsVersion = '28.0.2'
+    buildToolsVersion = '28.0.3'
     androidMinSdk = 21
     androidTargetSdk = 28
     androidCompileSdk = 28
@@ -27,6 +27,9 @@ ext {
     def tooltips = '0.1.9'
     def joda = '2.9.9.4'
 
+    def firebase = '16.0.1'
+    def crashlytics = '2.9.7'
+
     def mockito = '2.0.0-RC1'
     def jUnit = '4.12'
 
@@ -52,7 +55,9 @@ ext {
     ]
 
     def googleLibs = [
-            maps: "com.google.android.gms:play-services-maps:$googleServices"
+            maps       : "com.google.android.gms:play-services-maps:$googleServices",
+            firebase   : "com.google.firebase:firebase-core:$firebase",
+            crashlytics: "com.crashlytics.sdk.android:crashlytics:$crashlytics"
     ]
 
     def roomLibs = [
@@ -116,6 +121,7 @@ ext {
             [config: "implementation", dependency: androidLibs.lifecycleExensions],
             [config: "kapt", dependency: androidLibs.lifecycleCompiler],
             [config: "implementation", dependency: googleLibs.maps],
+            [config: "implementation", dependency: googleLibs.firebase],
             [config: "implementation", dependency: daggerLibs.dagger],
             [config: "implementation", dependency: daggerLibs.daggerAndroid],
             [config: "implementation", dependency: daggerLibs.daggerAndroidSupport],
