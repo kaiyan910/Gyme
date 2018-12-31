@@ -1,7 +1,7 @@
 GYME
 ====
 
-[![store](https://github.com/kaiyan910/Gyme/blob/master/assets/store-logo.png?raw=true)](https://play.google.com/store/apps/details?id=com.olleh.gyme)
+[![store](https://github.com/kaiyan910/Gyme/blob/master/assets/store-logo.png?raw=true | width=250)](https://play.google.com/store/apps/details?id=com.olleh.gyme)
 
 An application showing all public GYM room in Hong Kong.
 
