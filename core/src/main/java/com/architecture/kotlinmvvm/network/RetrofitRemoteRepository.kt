@@ -10,6 +10,7 @@ class RetrofitRemoteRepository(
 
     override fun getGymRooms(): Flowable<List<Gym>> = api.getGymRoom()
             .flatMapIterable { list -> list }
+            .filter { it.latitude.isNotEmpty() && it.longitude.isNotEmpty() }
             .map { res -> Gym.from(res) }
             .toList()
             .toFlowable()

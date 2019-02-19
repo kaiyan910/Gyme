@@ -2,6 +2,7 @@ package com.architecture.kotlinmvvm.model
 
 import com.architecture.kotlinmvvm.database.entity.GymEntity
 import com.architecture.kotlinmvvm.network.response.GymResponse
+import timber.log.Timber
 
 data class Gym(
 
